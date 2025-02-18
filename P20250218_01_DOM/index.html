@@ -1,0 +1,53 @@
+    <!--html,  Il dom è una libreria presente su javascript che ci permette di usare delle funzioni molto utili-->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <link rel="stylesheet" href="miostile.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+    <h1 class="miostile" id="cambio">Prima pagina html con DOM</h1>
+        <div class="miostile">import del DOM ? NO... il Dom sta nel browser...</div>
+        <div class="miostile">PER UTILIZZARE UN DOM HO BISOGNO DI UN LINGUAGGIO DI PROGRAMMAZIONE</div>
+        <h2>document</h2>
+        <h3>document ci sono metodi... ne vediamo uno... getelementbyid</h3>
+        <img id="miaimg" width="10px" src="https://hd2.tudocdn.net/679076?w=1920">
+        <button onclick="test()"> Cliccaqui</button>
+    </body>
+
+    
+
+
+    <script>
+        //javascript
+       
+
+        var x = 10; //js non esiste i tipi
+        //puo essere messo nell'head e nel body 
+        // tag script abilita la scrittura javascript
+        // qui posso usare il dom
+
+        
+
+        //funzione javascript
+        //Scrivere un blocco senza eseguirlo
+            function test() {
+            //document.element
+            document.title = "la mia prima pagina";
+            var miotag = document.getElementById("miaimg");
+
+            // attributo
+            miotag.setAttribute("width","500px");
+
+            //evento
+            miotag.onclick = ()  =>  {alert("ciao")};
+
+            //style
+            miotag.style.border = "solid 5px red";
+            miota
+        }
+
+    </script>
+</html>
