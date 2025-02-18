@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Page</title>
+</head>
+<body>
+    <ul id="demo">
+        <li onclick="myFunction()">Viva cristo</li>
+        <li>Belli regaz</li>
+    </ul>
+    <button onclick="myFunction()">Cliccami!!!</button>
+    <p id="result"></p>
+    <script>
+        function myFunction() {
+            let element = document.getElementById("demo").getElementsByTagName("li");
+            let length = element.length; 
+            alert(length);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ordine del McDonald's</title>
+</head>
+<body>
+  <button id="aggiungiCibo">Cosa ho ordinato:</button>
+  <ul id="listadelmc"></ul>
+  <script>
+    const pulsante = document.getElementById('aggiungiCibo');
+    const lista = document.getElementById('listadelmc');
+    const cibi = ["big mac", "sprite", "patate grandi"];
+    let indice = 0;
+
+    function aggiungiElemento() {
+      if (indice < cibi.length) {
+        const nuovoElemento = document.createElement('li');
+        nuovoElemento.textContent = cibi[indice];
+        lista.appendChild(nuovoElemento);
+        indice++;
+      }
+    }
+    pulsante.addEventListener('click', aggiungiElemento);
+  </script>
+
+</body>
+</html>
