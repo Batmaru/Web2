@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulazione Lampadina</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; } /* Imposta il testo al centro e usa il font Arial */
+        .lampadina { font-size: 50px; display: block; margin: 20px auto; } /* Definisce la dimensione e il margine della lampadina */
+    </style>
+</head>
+<body>
+    <h1>Simulazione Lampadina</h1> <!-- Titolo principale della pagina -->
+    <div class="lampadina" id="lampadina">💡</div> <!-- Simbolo della lampadina -->
+    <button id="interruttore">Click</button> <!-- Pulsante per cambiare lo stato della lampadina -->
+    <p>Stato: <span id="stato">Spenta</span></p> <!-- Mostra lo stato attuale della lampadina -->
+
+    <script>
+        class Lampadina {
+            constructor(maxClick) {
+                this.stato = "Spenta"; // Stato iniziale della lampadina
+                this.clicks = 0; // Numero di click effettuati
+                this.maxClick = 20; // Numero massimo di click prima che si rompa (valore fisso a 20)
+            }
+            click() {
+                if (this.clicks >= this.maxClick) {
+                    this.stato = "Rotta"; // Se supera il numero massimo, la lampadina si rompe
+                } else {
+                    this.stato = this.stato === "Accesa" ? "Spenta" : "Accesa"; // Cambia lo stato tra Accesa e Spenta
+                    this.clicks++; // Incrementa il numero di click
+                }
+            }
+            getStato() {
+                return this.stato; // Restituisce lo stato attuale della lampadina
+            }
+        }
+
+        const maxClick = prompt("Inserisci il numero massimo di click prima che si rompa:"); // Chiede all'utente il numero massimo di click
+        const lampadina = new Lampadina(parseInt(maxClick)); // Crea un'istanza della classe Lampadina con il valore inserito
+        
+        document.getElementById("interruttore").addEventListener("click", () => {
+            lampadina.click(); // Cambia lo stato della lampadina quando si preme il pulsante
+            document.getElementById("stato").textContent = lampadina.getStato(); // Aggiorna il testo con lo stato attuale
+            document.getElementById("lampadina").textContent = lampadina.getStato() === "Accesa" ? "💡" : (lampadina.getStato() === "Rotta" ? "❌" : "⚫"); // Cambia l'icona della lampadina a seconda dello stato
+        });
+    </script>
+</body>
+</html>
